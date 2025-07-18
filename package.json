@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "feishu-pages": "^0.7.6"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev dist/docs",
+    "docs:build": "vitepress build dist/docs",
+    "docs:preview": "vitepress preview dist/docs"
+  }
+}
