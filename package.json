@@ -7,7 +7,7 @@
   },
   "scripts": {
     "docs:dev": "vitepress dev dist/docs",
-    "docs:build": "vitepress build dist/docs",
+    "docs:build": "vitepress build dist/docs && node script/eo-refresh.js",
     "docs:preview": "vitepress preview dist/docs"
   }
 }

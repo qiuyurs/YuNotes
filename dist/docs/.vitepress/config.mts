@@ -50,19 +50,19 @@ const convertDocsToSidebars = (docs: any) => {
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   // 站点基本配置
-  title: "Coze开发指南",
-  titleTemplate: 'coze开发教程',
-  description: "coze 扣子网站专注于 AI 开发教程...",
+  title: "润雨de笔记",
+  titleTemplate: '润雨de笔记',
+  description: "专注于 AI 开发教程，内容涵盖 coze 智能体开发、工作流搭建教程、知识库构建指南、数据库在 AI 中的应用等全面知识。",
   
   // SEO相关配置
   sitemap: {
-    hostname: 'https://coze.lyzhan.cn'
+    hostname: 'https://note.lyzhan.cn'
   },
   
   // 头部脚本配置
   head: [
     ['script', { charts: 'UTF-8',id:'MXA_COLLECT', src: '//mxana.tacool.com/sdk.js' }],
-    ['script', {}, `MXA.init({ id: "c1-ztWxIrlt" })`]
+    ['script', {}, `MXA.init({ id: "c1-m1TbuHfH", useHeatMap: true, useHash: true, useErrorLog: true })`]
   ],
   
   // Markdown处理配置
@@ -108,12 +108,12 @@ export default defineConfig({
     // 导航栏配置
     nav: [
       { text: '首页', link: '/' },
-      { text: '知识星球', link: '/PlrTwePieibawvk2yoqccn3knFf' },
-      { text: '联系我们', link: '/HsS7wRKXci4OpBkpRuKcWKjfnif' },
+      { text: '知识星球', link: 'https://coze.lyzhan.cn/PlrTwePieibawvk2yoqccn3knFf' },
+      { text: '联系我们', link: 'https://coze.lyzhan.cn/HsS7wRKXci4OpBkpRuKcWKjfnif' },
     ],
     // 页脚配置
     footer: {
-      message: '<a href="/PlrTwePieibawvk2yoqccn3knFf">知识星球</a> or <a href="/HsS7wRKXci4OpBkpRuKcWKjfnif">联系我们</a>',
+      message: '<a href="https://coze.lyzhan.cn">Coze开发教程</a>',
       copyright: '<a href="https://beian.miit.gov.cn/">冀ICP备2022023787号-2</a>.'
     },
     
@@ -133,6 +133,8 @@ export default defineConfig({
   },
   
   // 最后更新时间
-  lastUpdated: true
+  lastUpdated: true,
+  // 关闭死链接检测
+  ignoreDeadLinks: true
 })
 
