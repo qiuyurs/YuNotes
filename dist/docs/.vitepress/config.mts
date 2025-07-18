@@ -110,6 +110,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '知识星球', link: 'https://coze.lyzhan.cn/PlrTwePieibawvk2yoqccn3knFf' },
       { text: '联系我们', link: 'https://coze.lyzhan.cn/HsS7wRKXci4OpBkpRuKcWKjfnif' },
+      { text: 'Coze开发教程', link: 'https://coze.lyzhan.cn/' },
     ],
     // 页脚配置
     footer: {
