@@ -40,9 +40,9 @@ const action = "CreatePurgeTask"
 const version = "2022-09-01"
 const timestamp = parseInt(String(new Date().getTime() / 1000))
 const date = getDate(timestamp)
-const payload = "{\"ZoneId\":\"zone-3e6q22fgevt6\",\"Type\":\"purge_host\",\"Method\":\"invalidate\",\"Targets\":[\"coze.lyzhan.cn\"]}"
+const payload = `{"ZoneId":"zone-3e6q22fgevt6","Type":"purge_host","Method":"invalidate","Targets":["${process.env.SITE_URL}"]}`
 
-// ************* 步骤 1：拼接规范请求串 *************
+// ************* 步骤 1：拼接n'yinyi串 *************
 const signedHeaders = "content-type;host"
 const hashedRequestPayload = getHash(payload)
 const httpRequestMethod = "POST"
