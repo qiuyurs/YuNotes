@@ -83,19 +83,38 @@ export default defineConfig({
         enforce: 'pre',
         transform(code, id) {
           if (id.endsWith('.md')) {
-            // 处理特殊字符转义
-            code = code.replace(/。/g, '.');
-            code = code.replace(/{/g, '&#123;');
-            
-            // 处理图片链接
-            code = code.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, url) => {
-              if (url.includes('图片链接')) {
-                return `![${alt}](https://picsum.photos/800/400?random=${Math.random()})`;
+            // 跳过代码块内容
+            let inCodeBlock = false;
+            const lines = code.split('\n');
+            const processedLines = lines.map(line => {
+              // 检测多行代码块开始/结束
+              if (line.trim().startsWith('```')) {
+                inCodeBlock = !inCodeBlock;
+                return line;
               }
-              return match;
+              
+              // 跳过代码块内的内容
+              if (inCodeBlock || line.trim().startsWith('`')) {
+                return line;
+              }
+              
+              // 处理非代码块内容中的特殊字符
+              line = line.replace(/。/g, '.');
+              line = line.replace(/{/g, '&#123;');
+              line = line.replace(/</g, '&lt;');
+              
+              // 处理图片链接
+              line = line.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, url) => {
+                if (url.includes('图片链接')) {
+                  return `![${alt}](https://picsum.photos/800/400?random=${Math.random()})`;
+                }
+                return match;
+              });
+              
+              return line;
             });
             
-            return code;
+            return processedLines.join('\n');
           }
           return null;
         }
